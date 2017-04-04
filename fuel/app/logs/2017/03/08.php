@@ -1,0 +1,15 @@
+<?php defined('COREPATH') or exit('No direct script access allowed'); ?>
+
+ERROR - 2017-03-08 10:27:15 --> Notice - Undefined property: stdClass::$host in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/classes/controller/host.php on line 65
+ERROR - 2017-03-08 10:27:43 --> Notice - Undefined property: stdClass::$host in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/classes/controller/host.php on line 65
+ERROR - 2017-03-08 10:56:29 --> Fatal Error - Method Fuel\Core\View::__toString() must not throw an exception, caught Error: Cannot use object of type stdClass as array in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/template.php on line 0
+ERROR - 2017-03-08 10:59:23 --> Fatal Error - Method Fuel\Core\View::__toString() must not throw an exception, caught Error: Cannot use object of type stdClass as array in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/template.php on line 0
+ERROR - 2017-03-08 11:05:56 --> Fatal Error - Method Fuel\Core\View::__toString() must not throw an exception, caught Error: Cannot use object of type stdClass as array in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/template.php on line 0
+ERROR - 2017-03-08 11:15:43 --> Warning - array_column() expects parameter 1 to be array, object given in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/host/view.php on line 126
+ERROR - 2017-03-08 11:24:06 --> Fatal Error - Method Fuel\Core\View::__toString() must not throw an exception, caught Error: Cannot use object of type stdClass as array in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/template.php on line 0
+ERROR - 2017-03-08 11:28:58 --> Fatal Error - Method Fuel\Core\View::__toString() must not throw an exception, caught Error: Cannot use object of type stdClass as array in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/template.php on line 0
+ERROR - 2017-03-08 12:10:18 --> Fatal Error - Method Fuel\Core\View::__toString() must not throw an exception, caught Error: Cannot use object of type stdClass as array in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/template.php on line 0
+ERROR - 2017-03-08 14:50:14 --> Notice - Use of undefined constant freeVirtMemLastCheck - assumed 'freeVirtMemLastCheck' in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/host/view.php on line 73
+ERROR - 2017-03-08 17:21:23 --> Notice - Undefined variable: freeVirtMemName in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/host/view.php on line 66
+ERROR - 2017-03-08 17:22:20 --> Fatal Error - Method Fuel\Core\View::__toString() must not throw an exception, caught ParseError: syntax error, unexpected '?>' in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/template.php on line 0
+ERROR - 2017-03-08 17:23:51 --> Notice - Undefined variable: procLoadName in /var/www/vhosts/solved-it.nu/dev.solved-it.nu/Zabmin/fuel/app/views/host/view.php on line 90

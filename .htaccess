@@ -1,0 +1,36 @@
+#
+#  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------.
+# | .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+# | |   ________   | || |      __      | || |   ______     | || | ____    ____ | || |     _____    | || | ____  _____  | |
+# | |  |  __   _|  | || |     /  \     | || |  |_   _ \    | || ||_   \  /   _|| || |    |_   _|   | || ||_   \|_   _| | |
+# | |  |_/  / /    | || |    / /\ \    | || |    | |_) |   | || |  |   \/   |  | || |      | |     | || |  |   \ | |   | |
+# | |     .'.' _   | || |   / ____ \   | || |    |  __'.   | || |  | |\  /| |  | || |      | |     | || |  | |\ \| |   | |
+# | |   _/ /__/ |  | || | _/ /    \ \_ | || |   _| |__) |  | || | _| |_\/_| |_ | || |     _| |_    | || | _| |_\   |_  | |
+# | |  |________|  | || ||____|  |____|| || |  |_______/   | || ||_____||_____|| || |    |_____|   | || ||_____|\____| | |
+# | |              | || |              | || |              | || |              | || |              | || |              | |
+# | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+#
+# The free and open source Zabbix frontend.
+#
+# Created by:
+# Solved-IT (www.solved-it.nu)
+# 
+# This htaccess file rewrites all URI's to /Zabmin/public/something
+# If you'd like to put Zabmin in a different directory of the root of you webserver, replace or remove Zabmin/ accordingly
+#
+
+
+RewriteEngine On 
+
+RewriteRule ^\.htaccess$ - [F] 
+RewriteCond %{REQUEST_URI} ="" 
+RewriteRule ^.*$ /Zabmin/public/index.php [NC,L] 
+
+RewriteCond %{REQUEST_URI} !^/Zabmin/public/.*$ 
+RewriteRule ^(.*)$ /Zabmin/public/$1 
+
+RewriteCond %{REQUEST_FILENAME} -f 
+RewriteRule ^.*$ - [NC,L] 
+
+RewriteRule ^/Zabmin/public/.*$ /Zabmin/public/index.php [NC,L]
