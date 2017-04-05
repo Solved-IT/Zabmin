@@ -79,8 +79,7 @@ class Controller_Main extends Controller_Template {
         $this->view->sidebar = View::forge('sidebar');
     }
 
-    public
-            function subDateTime($strSubstractBy) {
+    public function subDateTime($strSubstractBy) {
         $datetime = new DateTime();
         $datetime->sub(new DateInterval($strSubstractBy));
         return $datetime->getTimestamp();

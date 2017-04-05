@@ -1,5 +1,3 @@
-<?php
-
 /*
  *  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------.
  * | .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -18,52 +16,16 @@
  * Created by:
  * Solved-IT (www.solved-it.nu)
  * 
- * This is the main configuration file. Use this file to configure the frontend.
- * Make sure this file is not readable by the outside world! 
+ * JS file to do specific zambin things.
+ * This is kept outside the app.js of AdminLTE to prevent upgrade issues
  * 
  */
-return array(
-    /*
-     * Zabbix username and password. These credentials will be used to connect to the Zabbix API
-     * Value: zabbix credentials
-     */
-    'zabbixUserName' => 'Admin',
-    'zabbixPassWord' => 'zabbix',
-    
-    /*
-     * Would you like to have people login to use Zabmin?
-     * Setting this to 'true' will require login with the above credentials
-     * This is option is not currently supported because the default Auth driver only allows database backed login's
-     * Value: true|false
-     */
-    'zabminRequireLogin' => false,
-    
-    
-    /*
-     * Checks for host view page
-     * These are the key's Zabmin will display in the 3 boxes at the top of the host page.
-     * Value: any check in Zabbix
-     */
-    'hostViewMemoryUsage' => 'vm.memory.size[free]',
-    'hostViewProcLoad' => 'system.cpu.load[percpu,avg1]',
-    'hostViewDiskUsage' => 'vfs.fs.size[C:,pfree]',
-    
-    /*
-     * Chart type to use for chart page
-     * Value: area|line
-     */
-    'chartsLineType' => 'area',
-    
-    /*
-     * Should we display recent events and if so,
-     * how many events should we display on the short menu ?
-     * Value: true|false
-     * Value: integer
-     */
-    'menuDisplayRecentEvents' => true,
-    'menuNumberOfRecentEvents' => 10,
-    
-    /*
-     * 
-     */
-);
+
+/*
+ * Make objects with class "clickable-row" clickable
+ */
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});

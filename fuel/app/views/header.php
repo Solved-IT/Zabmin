@@ -18,7 +18,7 @@
  * Created by:
  * Solved-IT (www.solved-it.nu)
  * 
- * This is the header
+ * This is the header. It displays the top menu bar with logo and latest events etc.
  * 
  */
 ?>

@@ -36,14 +36,17 @@ class Controller_Chart extends Controller_Main {
         /*
          *  Get history of item.
          */
-        $history = $this->api->historyGet(array(
-            'filter' => array(
-                'itemid' => $this->param('itemid'),
-                'time_from' => $startDate,
-                'time_till' => $endDate
-        )));
-        $this->view->set_global('history', $history);
-
+        if (!empty($this->param('itemid'))) {
+            $history = $this->api->historyGet(array(
+                'filter' => array(
+                    'itemid' => $this->param('itemid'),
+                    'time_from' => $startDate,
+                    'time_till' => $endDate
+            )));
+            $this->view->set_global('history', $history);
+        } else {
+            Session::set_flash('array', array('type' => 'error', 'message' => 'No itemid specified.'));
+        }
         $this->view->set_global('title', 'test');
         $this->view->content = View::forge('chart/index');
 

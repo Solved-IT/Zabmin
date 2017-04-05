@@ -33,6 +33,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
         <script src="<?= BASEURL ?>/public/assets/js/app.min.js"></script>
+        <script src="<?= BASEURL ?>/public/assets/js/zabmin.js"></script>
         <script src="<?= BASEURL ?>/public/assets/js/demo.js"></script>
     </head>
 
@@ -49,56 +50,64 @@
                 echo $sidebar;
             }
 
-            echo '<div class="content">';
+            echo '<div class="content-wrapper">';
 
+            echo '<section class="content-header">';
+            echo '<h1>'. $this->title .'</h1>';
+            echo '</section>';
+            
             /*
              * Display any alert messages
              */
 
             if (!empty(Session::get_flash())) {
-                foreach (Session::get_flash() as $message) {
-                    echo '<div class="col-md-12">';
+                foreach (Session::get_flash() as  $message) {
+                    echo '<div class="no-print" style="padding: 15px 15px 0 15px;">';
 
                     switch ($message['value']['type']) {
                         case "error":
-                            echo '<div class="alert alert-danger alert-dismissible">';
-                            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                            echo '<h4><i class="icon fa fa-ban"></i>An error has occured</h4>';
+                            echo '<div class = "alert alert-danger alert-dismissible">';
+                            echo '<button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">×</button>';
+                            echo '<h4><i class = "icon fa fa-ban"></i>An error has occured</h4>';
                             break;
                         case "info":
-                            echo '<div class="alert alert-info alert-dismissible">';
-                            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                            echo '<h4><i class="icon fa fa-info"></i>A notification</h4>';
+                            echo '<div class = "alert alert-info alert-dismissible">';
+                            echo '<button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">×</button>';
+                            echo '<h4><i class = "icon fa fa-info"></i>A notification</h4>';
                             break;
                         case "warning":
-                            echo '<div class="alert alert-warning alert-dismissible">';
-                            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                            echo '<h4><i class="icon fa fa-warning"></i>Warning!</h4>';
+                            echo '<div class = "alert alert-warning alert-dismissible">';
+                            echo '<button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">×</button>';
+                            echo '<h4><i class = "icon fa fa-warning"></i>Warning!</h4>';
                             break;
                         case "success":
-                            echo '<div class="alert alert-success alert-dismissible">';
-                            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                            echo '<h4><i class="icon fa fa-check"></i>That worked!</h4>';
+                            echo '<div class = "alert alert-success alert-dismissible">';
+                            echo '<button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">×</button>';
+                            echo '<h4><i class = "icon fa fa-check"></i>That worked!</h4>';
                             break;
                     }
 
                     echo $message['value']['message'];
+                    echo '</div>';
                     echo '</div>';
                 }
             }
 
             echo $content;
 
+            echo '</div>';
+
             if (Request::active()->action != 'login') {
-                echo '<footer class="main-footer">';
+                echo '<footer class = "main-footer">';
                 echo '<div class = "pull-right hidden-xs">';
                 echo '<b>Version</b> 0.0.1 ALPHA';
                 echo '</div>';
-                echo '<strong>Copyright &copy;' . date('Y') . $site_title . '.</strong> All rights reserved.';
+                echo '<strong>Copyright &copy;
+            ' . date('Y') . $site_title . ' . < /strong> All rights reserved.';
                 echo '</footer>';
             }
             ?>
-        </div> <!-- content div -->
-    </div> <!-- wrapper div -->
-</body>
+
+        </div> <!-- wrapper div -->
+    </body>
 </html>
