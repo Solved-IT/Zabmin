@@ -53,15 +53,16 @@
             echo '<div class="content-wrapper">';
 
             echo '<section class="content-header">';
-            echo '<h1>'. $this->title .'</h1>';
+            echo '<h1>' . $this->title . '</h1>';
             echo '</section>';
-            
+
+            echo '<section class="content">';
             /*
              * Display any alert messages
              */
 
             if (!empty(Session::get_flash())) {
-                foreach (Session::get_flash() as  $message) {
+                foreach (Session::get_flash() as $message) {
                     echo '<div class="no-print" style="padding: 15px 15px 0 15px;">';
 
                     switch ($message['value']['type']) {
@@ -95,7 +96,33 @@
 
             echo $content;
 
+            /*
+             * Display raw API output
+             * Enable in config: zabmin.php
+             */
+            if (Config::get('displayRawApiOutput') == true) {
+                echo '<div class="row">';
+                echo '<div class="col-xs-12">';
+                echo '<div class="box box-default">';
+                echo '<div class="box-header with-border">';
+                echo '<h3 class="box-title">Raw API output</h3>';
+                echo '<div class="box-tools pull-right">';
+                echo '<button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>';
+                echo '<button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="box-body">';
+                echo '<pre>';
+                var_dump($data);
+                echo '</pre>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+
             echo '</div>';
+            echo '</section>';
 
             if (Request::active()->action != 'login') {
                 echo '<footer class = "main-footer">';
@@ -103,7 +130,7 @@
                 echo '<b>Version</b> 0.0.1 ALPHA';
                 echo '</div>';
                 echo '<strong>Copyright &copy;
-            ' . date('Y') . $site_title . ' . < /strong> All rights reserved.';
+            ' . date('Y') . $site_title . ' . </strong> All rights reserved.';
                 echo '</footer>';
             }
             ?>

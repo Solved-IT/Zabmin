@@ -28,29 +28,25 @@ class Controller_Host extends Controller_Main {
 
     public function action_index() {
         // Get host information
-        $host = $this->api->hostGet(array(
-            'selectTriggers',
+        $data['host'] = $this->api->hostGet(array(
             'filter' => array('hostid' => $this->param('hostid'))
         ));
-        $this->view->set_global('host', $host);
 
         // Get items
-        $items = $this->api->itemGet(array(
+        $data['items'] = $this->api->itemGet(array(
             'filter' => array('hostid' => $this->param('hostid'))
         ), 'key_');
-        $this->view->set_global('items', $items);
 
         // Get triggers
-        $triggers = $this->api->triggerGet(array(
+        $data['triggers'] = $this->api->triggerGet(array(
             'filter' => array(
                 'hostid' => $this->param('hostid'),
                 'value' => '1')
         ), 'key_');
-        $this->view->set_global('triggers', $triggers);
-
-        //var_dump($this->param('hostid'));
+        
+        $this->view->set_global('data', $data);
         $this->view->set_global('hostid', $this->param('hostid'));
-        $this->view->set_global('title', 'test');
+        $this->view->set_global('title', 'Host: '. $data['host'][0]->name);
         $this->view->content = View::forge('host/view');
 
         // return the view object to the Request

@@ -44,8 +44,8 @@ return array(
      * These are the key's Zabmin will display in the 3 boxes at the top of the host page.
      * Value: any check in Zabbix
      */
-    'hostViewMemoryUsage' => 'vm.memory.size[free]',
-    'hostViewProcLoad' => 'system.cpu.load[percpu,avg1]',
+    'hostViewMemoryUsage' => 'vm.memory.size[pfree]', 
+    'hostViewProcLoad' => array('system.cpu.load[percpu,avg1]', 'hrProcessorLoad[61]'),
     'hostViewDiskUsage' => 'vfs.fs.size[C:,pfree]',
     
     /*
@@ -64,6 +64,15 @@ return array(
     'menuNumberOfRecentEvents' => 10,
     
     /*
-     * 
+     * Display raw API output
+     * This is helpful for troubleshooting (displays A LOT OF DATA)
+     * Value: true|false
      */
+    'displayRawApiOutput' => true,
+    
+    /*
+     * Time format
+     * http://php.net/manual/en/function.date.php
+     */
+    'dateTimeFormat' => 'j F Y - H:i:s',
 );

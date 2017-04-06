@@ -29,12 +29,12 @@ class Controller_Hosts extends Controller_Main {
 
     public function action_index() {
         //$template = 'hosts/index';
-        $hosts = $this->api->hostGet(array(
+        $data = $this->api->hostGet(array(
             'selectGroups' => 'extend',
             'selectTriggers' => 'count',
         ));
         //Set hosts for template
-        $this->view->set_global('hosts', $hosts);
+        $this->view->set_global('data', $data);
 
         // assign global variables so all views have access to them
         $this->view->set_global('title', 'Hosts');
